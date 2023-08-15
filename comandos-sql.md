@@ -29,6 +29,12 @@ CREATE TABLE produtos(
     preco DECIMAL(6,2) NOT NULL,
     fabricante_id INT NOT NULL 
 );
+```
+### Criação de relacionamnto entre tabelas (chave estrangeira)
 
+```sql
+ALTER TABLE produtos
+    ADD CONSTRAINT fk_produtos_fabricantes
+    FOREIGN KEY (fabricante_id) REFERENCES fabricantes(id);  
 
 ```
