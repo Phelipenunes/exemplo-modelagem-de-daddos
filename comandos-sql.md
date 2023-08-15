@@ -13,3 +13,10 @@ CRTEATE TABLE fabricantes(
     nome VARCHAR(45) NOT NULL
 );
 ```
+
+### Vizuaizar detalhes estruturais da tabela    
+
+```sql
+DESC fabricantes;
+
+```
