@@ -42,10 +42,23 @@ select nome,descricao from produtos where fabricantes_id = 2;
 ```
 ### Operadores lógicos
 ```sql
-
+-- E
 select nome,preco from produtos where preco <= 6000 and preco >= 2000;
 
 
 select nome,preco from produtos where preco <= 6000 and preco >= 5500;
+
+-- OU
+select nome,preco from produtos where preco <= 3000 or preco >= 5500;
+ 
+-- exiba nome e preço somente dos produtos da apple e da sansung
+
+select nome, preco from produtos where fabricantes_id = 3 and fabricantes_id = 5;
+
+--NAO
+select nome, preco from produtos where not fabricantes_id = 8;
+
+
+select nome, preco from produtos where fabricantes_id != 8;
 
 ```
