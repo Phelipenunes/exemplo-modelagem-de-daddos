@@ -55,12 +55,31 @@ select nome,preco from produtos where preco <= 3000 or preco >= 5500;
 
 select nome, preco from produtos where fabricantes_id = 3 or fabricantes_id = 5;
 
-select nome, preco from produtos where fabricante_id in(3,5);
+select nome, preco from produtos where fabricante_id not in(3,5);
 
 --NAO
 select nome, preco from produtos where not fabricantes_id = 8;
 
+select nome, preco from produtos where fabricante_id not in(3,5);
 
 select nome, preco from produtos where fabricantes_id != 8;
+
+```
+
+## UPDATE
+```sql
+update fabricantes set nome = 'asus do brasil' where id = 1;
+
+update produtos set preco = 3500 where id = 1;
+
+
+-- altere aquantidade dos produtos da apple e da sansung para 20
+update produtos set quantidade = 20 where fabricantes_id = 3 or fabricantes_id = 5;
+```
+
+## DELETE
+```sql
+
+delete from fabricantes where id = 1
 
 ```
