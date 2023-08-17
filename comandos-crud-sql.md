@@ -110,8 +110,11 @@ select count(fabricantes_id) as "quantidade de fabricante" from produtos;
 
 select count(distinct fabricantes_id) as "quantidade de fabricante" from produtos;
 
-select count(distinct fabricantes_id) as "quantidade de fabricante" from produtos;
+select nome,preco,quantidade,(preco * quantidade) from produtos;
 
-select count(distinct fabricantes_id) as "quantidade de fabricante" from produtos;
+select sum(preco) from produtos;
 
 ```
+update produtos set  fabricantes_id = 2 where id = 2;
+select fabricantes_id, sum(preco) from produtos group by fabricante_id;
+
