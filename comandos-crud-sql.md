@@ -64,6 +64,12 @@ select nome, preco from produtos where fabricante_id not in(3,5);
 
 select nome, preco from produtos where fabricantes_id != 8;
 
+-- Outras formas de uso
+
+select nome,preco from produtos order by nome; 
+
+select nome,preco from produtos order by preco desc;
+
 ```
 
 ## UPDATE
@@ -81,5 +87,31 @@ update produtos set quantidade = 20 where fabricantes_id = 3 or fabricantes_id =
 ```sql
 
 delete from fabricantes where id = 1
+
+```
+### Opereções com funções  
+```sql
+
+select SUM(preco) from produtos;
+
+select SUM(preco)as total from produtos;
+
+
+select nome as produtos,preco as "preço" from produtos;
+
+
+select avg(preco) as "Média dos preços" from produtos;
+
+select round(avg(preco),2) as "Média dos preços" from produtos;
+
+select count(id) as "quantidade de preços" from produtos;
+
+select count(fabricantes_id) as "quantidade de fabricante" from produtos;
+
+select count(distinct fabricantes_id) as "quantidade de fabricante" from produtos;
+
+select count(distinct fabricantes_id) as "quantidade de fabricante" from produtos;
+
+select count(distinct fabricantes_id) as "quantidade de fabricante" from produtos;
 
 ```
