@@ -53,7 +53,9 @@ select nome,preco from produtos where preco <= 3000 or preco >= 5500;
  
 -- exiba nome e preço somente dos produtos da apple e da sansung
 
-select nome, preco from produtos where fabricantes_id = 3 and fabricantes_id = 5;
+select nome, preco from produtos where fabricantes_id = 3 or fabricantes_id = 5;
+
+select nome, preco from produtos where fabricante_id in(3,5);
 
 --NAO
 select nome, preco from produtos where not fabricantes_id = 8;
