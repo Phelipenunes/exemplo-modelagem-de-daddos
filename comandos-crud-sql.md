@@ -115,6 +115,48 @@ select nome,preco,quantidade,(preco * quantidade) from produtos;
 select sum(preco) from produtos;
 
 ```
-update produtos set  fabricantes_id = 2 where id = 2;
-select fabricantes_id, sum(preco) from produtos group by fabricante_id;
+## Consultas (queries) em duas ou mais tabelas relacionadas (JUNÇÃO/JOIN)
+### Exibir nome dos produtos com nome dos fabricantes
 
+```sql
+
+select produtos.nome as produtos,fabricantes.nome as fabricantes from produtos inner join fabricantes  on produtos.fabricantes_id = fabricantes.id;
+
+```
+### noem do produto, nome do fabricante, ordenados pelo nome do produto
+
+```sql
+
+select produtos.nome as produtos,produtos.preco,fabricantes.nome as fabricantes from produtos inner join fabricantes on produtos.fabricantes_id = fabricantes.id order by produtos; 
+```
+
+### fabricantes, soma dos preços e a quantidade de produtos
+```sql
+select fabricantes.nome as fabricantes,
+sum(produtos.preco) as total, count(produtos.fabricante_id) as "qtd de produtos"
+from produtos inner join fabricantes
+on produtos.fabricantes_id = fabricantes.id
+group by fabricantes order by total
+
+```
+
+### traga a quantidade de produtos de cada fabricantes
+```sql
+
+--traga a quantidade de produtos de cada fabricantes e a soma somente dos fabricantes que possuem produtos
+select fabricantes.nome as fabricante,
+sum(produtos.quantidade) as "qtd estoque",
+count(produtos.fabricantes_id) as "qtd de produtos"
+from produtos inner join fabricantes on produtos.fabricantes_id = fabricantes.id
+group by fabricante
+
+
+--traga a quantidade de produtos de cada fabricantes e a soma somente dos fabricantes que possuem produtos com os que nao possuem produtos 
+select fabricantes.nome as fabricante,
+sum(produtos.quantidade) as "qtd estoque",
+count(produtos.fabricantes_id) as "qtd de produtos"
+from produtos right join fabricantes on produtos.fabricantes_id = fabricantes.id
+group by fabricante
+
+
+```
